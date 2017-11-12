@@ -17,12 +17,18 @@ public class RhinoTest {
 
     @Before
     public void before(){
-        rhino = new Rhino(13000);
+        rhino = new Rhino(13000, 76);
     }
 
     @Test
     public void canGetRhinoValue(){
-       int expected = rhino.getCashValue();
-        assertEquals(expected, 13000);
+       int actual = rhino.getCashValue();
+        assertEquals(13000, actual);
+    }
+
+    @Test
+    public void canGetRhinoId(){
+        int actual = rhino.getId();
+        assertEquals(76, actual);
     }
 }

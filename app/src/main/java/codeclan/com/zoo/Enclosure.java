@@ -18,6 +18,10 @@ public class Enclosure<T extends Animal> {
         this.animals = animals;
     }
 
+    public ArrayList<T> getAnimals(){
+        return this.animals;
+    }
+
     public void addAnimal(T animal) {
         this.animals.add(animal);
     }
@@ -37,6 +41,8 @@ public class Enclosure<T extends Animal> {
         }
         return value;
     }
+
+
 }
 
 

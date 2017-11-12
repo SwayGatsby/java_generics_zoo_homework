@@ -5,8 +5,8 @@ package codeclan.com.zoo.Animals;
  */
 
 public class Rhino extends Animal {
-    public Rhino(int cashValue){
-        super(cashValue);
+    public Rhino(int cashValue, int id){
+        super(cashValue, id);
     }
 
 }

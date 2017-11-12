@@ -31,8 +31,8 @@ public class EnclosureTest {
     public void before() {
         seals = new ArrayList<Seal>();
         rhinos = new ArrayList<Rhino>();
-        seal = new Seal(700);
-        rhino = new Rhino(16000);
+        seal = new Seal(700, 23);
+        rhino = new Rhino(16000, 12);
         rhinoEnclosure = new Enclosure(rhinos);
         sealEnclosure = new Enclosure(seals);
 

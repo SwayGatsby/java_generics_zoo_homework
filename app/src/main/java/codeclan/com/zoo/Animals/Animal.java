@@ -6,13 +6,19 @@ package codeclan.com.zoo.Animals;
 
 public abstract class Animal {
     private int cashValue;
+    private int id;
 
-    public Animal(int cashValue){
+    public Animal(int cashValue, int id){
     this.cashValue = cashValue;
+    this.id = id;
     }
 
     public int getCashValue(){
         return this.cashValue;
+    }
+
+    public int getId(){
+        return this.id;
     }
 }
 

@@ -5,8 +5,8 @@ package codeclan.com.zoo.Animals;
  */
 
 public class Seal extends Animal {
-    public Seal(int cashValue){
-        super(cashValue);
+    public Seal(int cashValue, int id){
+        super(cashValue, id);
     }
 }
 

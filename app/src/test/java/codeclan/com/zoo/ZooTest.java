@@ -21,7 +21,8 @@ public class ZooTest {
     Enclosure<Rhino> rhinoEnclosure;
     Enclosure<Seal> sealEnclosure;
     Seal seal;
-    Rhino rhino;
+    Rhino rhino1;
+    Rhino rhino2;
     ArrayList<Seal> seals;
     ArrayList<Rhino> rhinos;
     ArrayList<Enclosure> enclosures;
@@ -30,10 +31,11 @@ public class ZooTest {
     public void before(){
         seals = new ArrayList<Seal>();
         rhinos = new ArrayList<Rhino>();
-        seal = new Seal(1200);
-        rhino = new Rhino(20000);
+        seal = new Seal(1200, 12);
+        rhino1 = new Rhino(20000, 17);
+        rhino2 = new Rhino(21000, 19);
         rhinoEnclosure = new Enclosure(rhinos);
-        rhinoEnclosure.addAnimal(rhino);
+        rhinoEnclosure.addAnimal(rhino1);
         sealEnclosure = new Enclosure(seals);
         sealEnclosure.addAnimal(seal);
         enclosures = new ArrayList<Enclosure>();
@@ -47,4 +49,46 @@ public class ZooTest {
         assertEquals(expected, 1);
     }
 
+    @Test
+    public void canRemoveEnclosure(){
+        zoo.addEnclosure(sealEnclosure);
+        zoo.addEnclosure(rhinoEnclosure);
+        int expected = zoo.getNumOfEnclosures();
+        assertEquals(expected, 2);
+        zoo.removeEnclosure(rhinoEnclosure);
+        int expected1 = zoo.getNumOfEnclosures();
+        assertEquals(expected1, 1);
+
+    }
+
+    @Test
+    public void canGetTotalNumOfAnimalsInEnclosures(){
+        rhinoEnclosure.addAnimal(rhino1);
+        rhinoEnclosure.addAnimal(rhino2);
+        sealEnclosure.addAnimal(seal);
+        zoo.addEnclosure(rhinoEnclosure);
+        zoo.addEnclosure(sealEnclosure);
+        int expected = zoo.getNumOfAnimalsInEnclosures();
+        assertEquals(expected, 5);
+    }
+
+    @Test
+    public void canSellAnimal(){
+        zoo.addEnclosure(rhinoEnclosure);
+        rhinoEnclosure.addAnimal(rhino2);
+        System.out.println(zoo.getNumOfAnimalsInEnclosures());
+
+        System.out.println("Cash before: " + zoo.getCash());
+        zoo.sellAnimal(rhino1);
+        System.out.println("Cash after: " + zoo.getCash());
+        int actualCash = zoo.getCash();
+        assertEquals(920000, actualCash);
+        System.out.println(zoo.getNumOfAnimalsInEnclosures());
+    }
+
 }
+
+
+
+
+

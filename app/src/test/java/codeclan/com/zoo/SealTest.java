@@ -17,11 +17,17 @@ public class SealTest {
 
     @Before
     public void before(){
-    seal = new Seal(1500);}
+    seal = new Seal(1500, 98);}
 
     @Test
     public void canGetCashValue(){
-        int expected = seal.getCashValue();
-        assertEquals(expected, 1500);
+        int actual = seal.getCashValue();
+        assertEquals(1500, actual);
+    }
+
+    @Test
+    public void canGetId(){
+        int actual = seal.getId();
+        assertEquals(98, actual);
     }
 }
